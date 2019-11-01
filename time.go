@@ -23,6 +23,8 @@ func (c *CircleTime) Append(t time.Time) {
 func (c *CircleTime) Head() time.Time {
 	if c.cursor == 0 && !c.filled {
 		return time.Time{}
+	} else if c.cursor == 0 && c.filled {
+		return c.buf[len(c.buf)-1]
 	}
 	return c.buf[c.cursor]
 }

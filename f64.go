@@ -29,6 +29,8 @@ func (c *CircleF64) Head() float64 {
 func (c *CircleF64) Tail() float64 {
 	if c.cursor == 0 && !c.filled {
 		return 0
+	} else if c.cursor == 0 && c.filled {
+		return c.buf[len(c.buf)-1]
 	}
 	return c.buf[c.cursor-1]
 }
