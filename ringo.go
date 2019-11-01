@@ -10,13 +10,12 @@ type CircleF64 struct {
 
 // Append adds a value to the buffer
 func (c *CircleF64) Append(f float64) {
-	c.buf[c.cursor] = f
 	if c.cursor == cap(c.buf) {
 		c.cursor = 0
 		c.filled = true
-	} else {
-		c.cursor++
 	}
+	c.buf[c.cursor] = f
+	c.cursor++
 }
 
 // Head gets the most recent addition.  It returns zero if the buffer is empty
