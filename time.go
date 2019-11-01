@@ -10,12 +10,12 @@ type CircleTime struct {
 }
 
 // Append adds a value to the buffer
-func (c *CircleTime) Append(f time.Time) {
+func (c *CircleTime) Append(t time.Time) {
 	if c.cursor == cap(c.buf) {
 		c.cursor = 0
 		c.filled = true
 	}
-	c.buf[c.cursor] = f
+	c.buf[c.cursor] = t
 	c.cursor++
 }
 
